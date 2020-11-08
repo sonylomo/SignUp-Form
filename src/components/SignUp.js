@@ -1,51 +1,55 @@
-import React, { useState } from "react";
+import React from "react"
+import useValidation from "./useValidation"
+import Auth from './auth'
 
 function SignUp() {
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(
-            `Username: ${username}, E-mail: ${email}, Password: ${password}`
-        );
+    const InitialState = {
+        username: "",
+        email: "",
+        password: ""
     }
 
+    //destructure function from custom hook
+    const { handleChange, handleSubmit, values, errors, submitted } = useValidation(InitialState, Auth)
+
     return (
-        <div className="login_text">
+        <div className="signup_text">
             <h1>Sign Up</h1>
             <form>
                 <input
                     className="texts"
                     type="text"
-                    name="Username"
+                    name="username"
                     placeholder="Enter Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={values.username}
+                    onChange={handleChange}
                 />
+                {errors.username && <p className="error-text">{errors.username}</p>}
+
                 <input
                     className="texts"
                     type="email"
-                    name="Email"
+                    name="email"
                     placeholder="Enter E-mail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={values.email}
+                    onChange={handleChange}
                 />
+                {errors.email && <p className="error-text">{errors.email}</p>}
                 <input
                     className="texts"
                     type="password"
-                    name="Password"
+                    name="password"
                     placeholder="Enter Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={values.password}
+                    onChange={handleChange}
                 />
-
+                {errors.password && <p className="error-text">{errors.password}</p>}
                 <input
                     type="submit"
                     name="Submit"
                     value="Sign Up"
                     onClick={handleSubmit}
+                    disabled={submitted}
                 />
             </form>
         </div>

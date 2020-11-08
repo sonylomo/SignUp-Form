@@ -5,10 +5,10 @@ body
 	font-family: sans-serif;
 }
 
-.login_text
+.signup_text
 {
 	width: 320px;
-	height: 420px;
+	height: 450px;
 	background: rgba(0, 0, 0, .8);
 	color: #fff;
 	top: 50%;
@@ -19,13 +19,13 @@ body
 	padding: 50px 30px;
 }
 
-.login_text input
+.signup_text input
 {
 	width: 100%;
 	margin-bottom: 20px;
 }
 
-.login_text input[type="submit"]
+.signup_text input[type="submit"]
 {
 	border: none;
 	outline: none;
@@ -36,7 +36,7 @@ body
 	border-radius: 20px;
 }
 
-.login_text input[type="submit"]:hover
+.signup_text input[type="submit"]:hover
 {
 	cursor: pointer;
 	background: #07e2ff;
@@ -61,3 +61,11 @@ h1
 	color: #fff;
 	font-size: 16px;
 }
+
+.error-text {
+	margin: 0.20em 0 0 0;
+	padding: 0;
+	color: red;
+	font-style: bold;
+	font-size: 1.1rem;
+  }
